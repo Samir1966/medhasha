@@ -1,0 +1,16 @@
+{
+  "name": "MedhAsha",
+  "short_name": "MedhAsha",
+  "description": "Village Minds, Nation’s Hope - Brain health for rural elders",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#16a34a",
+  "icons": [
+    {
+      "src": "/icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
