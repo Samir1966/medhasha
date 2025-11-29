@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import { Menu, Moon, Sun, User } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -23,9 +24,17 @@ export function Header() {
     return (
         <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
             <div className="container flex h-16 items-center justify-between px-4">
-                <Link href="/" className="flex items-center gap-2">
-                    <div className="h-8 w-8 rounded-full bg-primary" />
-                    <span className="text-xl font-bold text-primary">MedhAsha</span>
+                <Link href="/" className="flex items-center gap-2 group">
+                    <div className="relative h-10 w-10 transition-transform group-hover:scale-110 duration-300">
+                        <Image
+                            src="/medhasha-logo.png"
+                            alt="MedhAsha"
+                            width={40}
+                            height={40}
+                            className="object-contain"
+                        />
+                    </div>
+                    <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">MedhAsha</span>
                 </Link>
 
                 <div className="flex items-center gap-2">
