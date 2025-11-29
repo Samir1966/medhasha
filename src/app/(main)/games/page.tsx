@@ -119,12 +119,14 @@ export default function GamesPage() {
                                                 {game.title}
                                             </CardTitle>
                                             <div className="flex items-center gap-2 mt-2">
-                                                <span className={`text-xs font-semibold px-2 py-1 rounded-full ${game.difficulty === "Easy"
-                                                        ? "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400"
-                                                        : game.difficulty === "Medium"
-                                                            ? "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400"
-                                                            : "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400"
-                                                    }`}>
+                                                <span
+                                                    className={`text-xs font-semibold px-2 py-1 rounded-full ${game.difficulty === "Easy"
+                                                            ? "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400"
+                                                            : game.difficulty === "Medium"
+                                                                ? "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400"
+                                                                : "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400"
+                                                        }`}
+                                                >
                                                     {game.difficulty}
                                                 </span>
                                             </div>
@@ -160,12 +162,12 @@ export default function GamesPage() {
                         <motion.div
                             key={i}
                             initial={{
-                                x: Math.random() * window.innerWidth,
-                                y: Math.random() * window.innerHeight,
+                                x: `${Math.random() * 100}%`,
+                                y: `${Math.random() * 100}%`,
                             }}
                             animate={{
-                                x: Math.random() * window.innerWidth,
-                                y: Math.random() * window.innerHeight,
+                                x: `${Math.random() * 100}%`,
+                                y: `${Math.random() * 100}%`,
                             }}
                             transition={{
                                 duration: Math.random() * 20 + 10,
