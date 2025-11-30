@@ -36,7 +36,7 @@ export async function POST(req: Request) {
                 "X-Title": "BrainHope NeuroBuddy" // Optional: your app name
             },
             body: JSON.stringify({
-                model: "google/gemini-2.0-flash-exp:free", // Using the free Gemini 2.0 Flash model
+                model: "meta-llama/llama-3.2-3b-instruct:free", // Switched to Llama 3.2 3B (Free)
                 messages: messages,
                 temperature: 0.7,
                 max_tokens: 500
@@ -45,8 +45,12 @@ export async function POST(req: Request) {
 
         if (!response.ok) {
             const errorData = await response.text();
-            console.error("OpenRouter API Error:", response.status, errorData);
-            throw new Error(`OpenRouter API error: ${response.status}`);
+            console.error("OpenRouter API Error Details:", {
+                status: response.status,
+                statusText: response.statusText,
+                body: errorData
+            });
+            throw new Error(`OpenRouter API error: ${response.status} - ${errorData}`);
         }
 
         const data = await response.json();
