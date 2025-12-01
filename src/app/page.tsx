@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { MessageCircle, Gamepad2, Activity, BookOpen, MapPin, Heart, Calculator, FileText, ArrowRight, Sparkles } from "lucide-react";
+import { MessageCircle, Gamepad2, Activity, BookOpen, MapPin, Heart, Calculator, FileText, ArrowRight, Sparkles, Glasses } from "lucide-react";
 
 export default function HomePage() {
   const { t } = useTranslation();
@@ -34,6 +34,7 @@ export default function HomePage() {
     { href: "/community", icon: Heart, label: "Community", desc: "Connect & Share", color: "bg-pink-100 text-pink-600", border: "border-pink-200" },
     { href: "/calculators", icon: Calculator, label: "Risk Check", desc: "Health Analysis", color: "bg-yellow-100 text-yellow-600", border: "border-yellow-200" },
     { href: "/caregiver", icon: FileText, label: "Caregiver", desc: "Tools & Reports", color: "bg-slate-100 text-slate-600", border: "border-slate-200" },
+    { href: "https://medhasha-vr.vercel.app/", icon: Glasses, label: "Medhasha VR", desc: "Virtual Reality", color: "bg-indigo-100 text-indigo-600", border: "border-indigo-200", external: true },
   ];
 
   return (
@@ -122,19 +123,35 @@ export default function HomePage() {
       >
         {features.map((feature) => (
           <motion.div key={feature.href} variants={item}>
-            <Link href={feature.href}>
-              <Card className={`h-full transition-all hover:-translate-y-1 hover:shadow-lg border ${feature.border} bg-background/50 backdrop-blur-sm cursor-pointer group`}>
-                <CardContent className="flex flex-col items-center justify-center gap-4 p-6 text-center h-full">
-                  <div className={`h-16 w-16 rounded-2xl ${feature.color} flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform duration-300`}>
-                    <feature.icon className="h-8 w-8" />
-                  </div>
-                  <div className="space-y-1">
-                    <span className="text-lg font-bold block">{feature.label}</span>
-                    <span className="text-xs text-muted-foreground">{feature.desc}</span>
-                  </div>
-                </CardContent>
-              </Card>
-            </Link>
+            {feature.external ? (
+              <a href={feature.href} target="_blank" rel="noopener noreferrer">
+                <Card className={`h-full transition-all hover:-translate-y-1 hover:shadow-lg border ${feature.border} bg-background/50 backdrop-blur-sm cursor-pointer group`}>
+                  <CardContent className="flex flex-col items-center justify-center gap-4 p-6 text-center h-full">
+                    <div className={`h-16 w-16 rounded-2xl ${feature.color} flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform duration-300`}>
+                      <feature.icon className="h-8 w-8" />
+                    </div>
+                    <div className="space-y-1">
+                      <span className="text-lg font-bold block">{feature.label}</span>
+                      <span className="text-xs text-muted-foreground">{feature.desc}</span>
+                    </div>
+                  </CardContent>
+                </Card>
+              </a>
+            ) : (
+              <Link href={feature.href}>
+                <Card className={`h-full transition-all hover:-translate-y-1 hover:shadow-lg border ${feature.border} bg-background/50 backdrop-blur-sm cursor-pointer group`}>
+                  <CardContent className="flex flex-col items-center justify-center gap-4 p-6 text-center h-full">
+                    <div className={`h-16 w-16 rounded-2xl ${feature.color} flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform duration-300`}>
+                      <feature.icon className="h-8 w-8" />
+                    </div>
+                    <div className="space-y-1">
+                      <span className="text-lg font-bold block">{feature.label}</span>
+                      <span className="text-xs text-muted-foreground">{feature.desc}</span>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
+            )}
           </motion.div>
         ))}
       </motion.div>
