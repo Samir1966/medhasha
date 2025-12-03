@@ -26,7 +26,7 @@ export default function HomePage() {
   };
 
   const features = [
-    { href: "/chat", icon: MessageCircle, label: "NeuroBuddy", desc: "Your AI Companion", color: "bg-green-100 text-green-600", border: "border-green-200" },
+    { href: "https://neurobuddy-gramin-mitra.vercel.app/", icon: MessageCircle, label: "NeuroBuddy", desc: "Your AI Companion", color: "bg-green-100 text-green-600", border: "border-green-200", external: true },
     { href: "/games", icon: Gamepad2, label: "Brain Games", desc: "Sharpen your mind", color: "bg-blue-100 text-blue-600", border: "border-blue-200" },
     { href: "/yoga", icon: Activity, label: "Virtual Yoga", desc: "Body & Mind Balance", color: "bg-orange-100 text-orange-600", border: "border-orange-200" },
     { href: "/library", icon: BookOpen, label: "Library", desc: "Health Wisdom", color: "bg-purple-100 text-purple-600", border: "border-purple-200" },
@@ -64,9 +64,9 @@ export default function HomePage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <Button size="lg" className="rounded-full text-lg h-14 px-8 shadow-primary/25 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all" asChild>
-                <Link href="/chat">
+                <a href="https://neurobuddy-gramin-mitra.vercel.app/" target="_blank" rel="noopener noreferrer" className="flex items-center">
                   Chat with NeuroBuddy <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
+                </a>
               </Button>
               <Button size="lg" variant="outline" className="rounded-full text-lg h-14 px-8 border-2" asChild>
                 <Link href="/games">Play Games</Link>
